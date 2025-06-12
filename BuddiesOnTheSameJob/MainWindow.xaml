@@ -1,0 +1,27 @@
+﻿<Window x:Class="BuddiesOnTheSameJob.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BuddiesOnTheSameJob"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Button Content="Зареди CSV" Width="120" Height="30" Margin="0,0,0,10"
+                Click="LoadFile_Click"/>
+
+        <DataGrid x:Name="EmployeeGrid" Grid.Row="1" AutoGenerateColumns="False" CanUserAddRows="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Employee #1" Binding="{Binding EmpId1}"/>
+                <DataGridTextColumn Header="Employee #2" Binding="{Binding EmpId2}"/>
+                <DataGridTextColumn Header="Project ID" Binding="{Binding ProjectId}"/>
+                <DataGridTextColumn Header="Days Worked" Binding="{Binding DaysWorked}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>
