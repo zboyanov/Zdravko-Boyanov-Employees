@@ -25,19 +25,19 @@ namespace BuddiesOnTheSameJob.Services
             var lines = File.ReadAllLines(filePath);
             foreach (var line in lines)
             {
-                var parts = line.Split(',');
+                var employeeProperties = line.Split(',');
 
-                if (parts.Length < 4)
+                if (employeeProperties.Length < 4)
                     continue;
 
                 try
                 {
-                    int empId = int.Parse(parts[0].Trim());
-                    int projectId = int.Parse(parts[1].Trim());
-                    DateTime dateFrom = ParseDate(parts[2].Trim());
-                    DateTime dateTo = string.IsNullOrWhiteSpace(parts[3])
+                    int empId = int.Parse(employeeProperties[0].Trim());
+                    int projectId = int.Parse(employeeProperties[1].Trim());
+                    DateTime dateFrom = ParseDate(employeeProperties[2].Trim());
+                    DateTime dateTo = string.IsNullOrWhiteSpace(employeeProperties[3])
                         ? DateTime.Today
-                        : ParseDate(parts[3].Trim());
+                        : ParseDate(employeeProperties[3].Trim());
 
                     workLogs.Add(new WorkLog
                     {
